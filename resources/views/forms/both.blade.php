@@ -17,7 +17,7 @@
               <div class="card">
                 <div class="card-body d-flex justify-content-between">
                   <h3 class="card-title">Total : </h3>
-                  <p class="card-text"> DH</p>
+                  <p class="card-text"> Dh</p>
                 </div>
               </div>
             </div>
