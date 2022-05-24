@@ -1,0 +1,121 @@
+*{
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+#main-header {
+   position: fixed;
+   width: 100%;
+   height: 75px; 
+   background-color: white;
+   z-index: 100;
+}
+.navbar-brand{
+   font-size: 2rem;
+   color:black;
+   font-family: 'Libre Bodoni', serif;
+
+} 
+.navbar-brand:hover{
+   color:#A52A2A;
+}
+.nav-link{
+   margin-right: 10px;
+   margin-left: 10px;
+   color: black;
+   text-transform: uppercase;
+
+}
+.nav-link:hover{
+   color:#ffb2b2;
+}
+.hover-nav-link:hover{
+    color: #fff;
+}
+.link{
+    color: #fff;
+}
+svg{
+    color: yellowgreen;
+}
+.success-auth{
+   background-color: white; 
+  color: black; 
+  border-radius: 8px;
+  border-color: #4CAF50;
+  padding: 5px 10px;
+  transition:0.3s
+
+}
+.add{
+   background-color: white; 
+   color: black; 
+   border-radius: 8px;
+   border: 1px solid #caeacb;
+   padding: 5px 10px;
+   transition:0.3s
+ 
+}
+.add:hover{
+   background-color: #9bcc9d;
+   color: white;
+}
+.delete svg{
+   color: rgb(253, 94, 94);
+}
+.delete {
+   background-color: white; 
+   color: black; 
+   border-radius: 8px;
+   border: 1px solid #f46565;
+   padding: 5px 10px;
+   transition:0.3s
+ 
+}
+.delete:hover{
+   background-color: #dc3030;
+   color: white;
+   
+}
+
+
+.success-auth:hover{
+   background-color: #4CAF50;
+   color: white;
+}
+.card-text{
+   color: #74ad5c;
+   font-size: 20px;
+   font-weight: 500;
+}
+.add-icone{
+   position: fixed;
+   bottom: 40px;
+   right: 40px;
+   cursor: pointer;
+}
+
+.card-text a{
+   color: black;
+}
+.view{
+   background-color: white; 
+   color: black; 
+   border-radius: 8px;
+   border: 1px solid #c6d254;
+   padding: 5px 10px;
+   transition:0.3s
+}
+.view:hover{
+   background-color: #e6eda6;
+   color: white;
+}
+.form-group-modifier input:focus {
+   outline: 2px solid #c6d254;
+}
+.form-group-modifier textarea:focus {
+   outline: 2px solid #c6d254;
+}
+.depense svg{
+   color: rgb(253, 94, 94);
+}
