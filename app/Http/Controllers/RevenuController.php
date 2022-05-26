@@ -2,7 +2,9 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\compte;
 use App\Models\revenu;
+use App\Models\source;
 use App\Http\Requests\StorerevenuRequest;
 use App\Http\Requests\UpdaterevenuRequest;
 
@@ -15,7 +17,9 @@ class RevenuController extends Controller
      */
     public function index()
     {
-        //
+        return view('forms.charge')->with([
+            'sources' => source::get()
+        ]);
     }
 
     /**
@@ -23,10 +27,26 @@ class RevenuController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function create()
-    {
-        //
-    }
+    // public function ajouterrevenu(Request $request)
+    // {
+    //    $this->validate($request,[
+    //        "valeur_" => "required|min:3",
+    //        "budget" => "nullable|numeric",
+    //         "description"=>"required"
+
+    //    ]);
+    //    $title=$request->title;
+    //    compte::create([
+    //     "nom" =>$request->nom ,
+    //     "user_id" => auth()->user()->id,
+    //     "budget" => $request->budget,
+    //      "description"=>$request->description
+    //    ]);
+    //    return redirect()->route('compte.show')->with([
+    //        'success'=>'Ajout avec succes'
+    //    ]);
+
+    // }
 
     /**
      * Store a newly created resource in storage.

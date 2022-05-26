@@ -116,6 +116,9 @@ svg{
 .form-group-modifier textarea:focus {
    outline: 2px solid #c6d254;
 }
+.form-group-modifier select:focus {
+   outline: 2px solid #c6d254;
+}
 .depense svg{
    color: rgb(253, 94, 94);
 }

@@ -27,11 +27,9 @@ class CompteController extends Controller
             'compte' => $compte
         ]);
     }
-    public function ajouter(compte $compte)
+    public function ajouter()
     {
-        return view('forms.Ajouter')->with([
-            'compte' => $compte
-        ]);
+        return view('forms.Ajouter');
     }
     public function ajoutercompte(Request $request)
     {
