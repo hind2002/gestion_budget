@@ -17,8 +17,7 @@ class CreateSourcesTable extends Migration
             $table->id();
             $table->timestamps();
             $table->string('name');
-            $table->date('date');
-            $table->double('valeur_source');
+           
             
 
         });
