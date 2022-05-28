@@ -5,6 +5,7 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\CompteController;
 use App\Http\Controllers\RevenuController;
+use App\Http\Controllers\CategorieDepenseController;
 
 /*
 |--------------------------------------------------------------------------
@@ -32,7 +33,8 @@ Route::post('/compte/ajoutercompte', [CompteController::class, 'ajoutercompte'])
 Route::post('/compte/modifiercompte/{compte}', [CompteController::class, 'modifierCompte'])->name('compte.modifiercompte')->middleware('auth');
 Route::post('/compte/supprimer/{compte}', [CompteController::class, 'destroy'])->name('compte.destroy')->middleware('auth');
 Route::get('/compte/detailles/{compte}', [CompteController::class, 'both'])->name('compte.both')->middleware('auth');
-Route::get('/compte/ajouterrevenu', [RevenuController::class, 'index'])->name('compte.index')->middleware('auth');
+Route::get('/compte/ajouterrevenu', [RevenuController::class, 'index'])->name('revenu.index')->middleware('auth');
+Route::get('/compte/ajouterdepenses', [CategorieDepenseController::class, 'index'])->name('depense.index')->middleware('auth');
 
 
 
