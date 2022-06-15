@@ -15,10 +15,11 @@ class RevenuController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index(compte $compte)
     {
         return view('forms.charge')->with([
-            'sources' => source::get()
+            'sources' => source::get(),
+            'compte' => $compte,
         ]);
     }
 
@@ -54,9 +55,26 @@ class RevenuController extends Controller
      * @param  \App\Http\Requests\StorerevenuRequest  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(StorerevenuRequest $request)
+    public function store(StorerevenuRequest $request, compte $compte)
     {
-        //
+      
+        revenu::create([
+            "compte_id" => $compte->id,
+            "valeur_revenu"=>$request->valeur_revenu,
+            "name_r"=>$request->name_r,
+            "date"=>$request->date,
+
+        ]);
+        $compte->update([
+            "budget" => $compte->budget + $request->valeur_revenu
+        ]);
+        return redirect()->route('compte.show')->with([
+            'sources' => source::get(),
+            
+            
+            
+        ]);
+        
     }
 
     /**

@@ -3,7 +3,10 @@
 namespace App\Http\Controllers;
 
 use App\Models\compte;
+use App\Models\revenu;
+use App\Models\depense;
 use Illuminate\Http\Request;
+use App\Models\categorie_depense;
 use Illuminate\Support\Facades\DB;
 
 class CompteController extends Controller
@@ -76,8 +79,12 @@ class CompteController extends Controller
     }
     public function both(compte $compte)
     {
+        
         return view('forms.both')->with([
-            'compte' => $compte
+           'compte'=>$compte,
+            'depenses' => $compte->depenses,
+            'revenus' => $compte->revenus,
+            
         ]);
     }
 

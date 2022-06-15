@@ -21,6 +21,7 @@ class CreateDepensesTable extends Migration
             $table->double('valeur_depense_d');
             $table->bigInteger('categorie_depense_id')->unsigned()->nullable();
             $table->foreign('categorie_depense_id')->references('id')->on('categorie_depenses')->onDelete('cascade');
+            
         });
     }
 

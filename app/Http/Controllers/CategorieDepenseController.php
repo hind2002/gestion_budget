@@ -15,9 +15,7 @@ class CategorieDepenseController extends Controller
      */
     public function index()
     {
-            return view('forms.depenses')->with([
-                'CategorieDepense' => categorie_depense::get()
-            ]);
+        
         
     }
 

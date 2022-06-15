@@ -2,7 +2,9 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\compte;
 use App\Models\depense;
+use App\Models\categorie_depense;
 use App\Http\Requests\StoredepenseRequest;
 use App\Http\Requests\UpdatedepenseRequest;
 
@@ -13,10 +15,15 @@ class DepenseController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index(compte $compte)
     {
-        //
+        return view('forms.depenses')->with([
+            'CategorieDepense' => categorie_depense::get(),
+            'compte' => $compte,
+            
+        ]);
     }
+    
 
     /**
      * Show the form for creating a new resource.
@@ -25,7 +32,7 @@ class DepenseController extends Controller
      */
     public function create()
     {
-        //
+        
     }
 
     /**
@@ -34,9 +41,26 @@ class DepenseController extends Controller
      * @param  \App\Http\Requests\StoredepenseRequest  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(StoredepenseRequest $request)
+    public function store(StoredepenseRequest $request, compte $compte)
     {
-        //
+      
+        depense::create([
+            "compte_id" => $compte->id,
+            "valeur_depense_d"=>$request->valeur_depense,
+            "name_d"=>$request->name_d,
+            "date_d"=>$request->date_d,
+
+        ]);
+        $compte->update([
+            "budget" => $compte->budget - $request->valeur_depense
+        ]);
+        return redirect()->route('compte.show')->with([
+            'depenses' => depense::get(),
+            
+            
+            
+        ]);
+        
     }
 
     /**
