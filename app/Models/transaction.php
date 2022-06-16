@@ -12,7 +12,10 @@ class transaction extends Model
     protected $fillable=[
         'montant',
         'sens',
-        'compte_id'
+        'compte_id',
+        'compte_emetteur',
+        'compte_recepteur'
+
     ];
 
 

@@ -41,6 +41,7 @@ Route::post('/compte/ajouterdepenses-store/{compte}', [DepenseController::class,
 Route::post('/compte/ajouterrevenus-store/{compte}', [RevenuController::class, 'store'])->name('revenu.store')->middleware('auth');
 Route::get('/transaction/{compte}', [TransactionController::class, 'showtransaction'])->name('transaction.showtransaction')->middleware('auth');
 Route::post('/transactioncompte', [TransactionController::class, 'translate'])->name('transaction.translate')->middleware('auth');
+Route::get('/transactiondetailles', [TransactionController::class, 'afficher'])->name('transaction.afficher')->middleware('auth');
 
 
 

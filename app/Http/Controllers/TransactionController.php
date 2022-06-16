@@ -17,26 +17,31 @@ class TransactionController extends Controller
         ]);
     }
     public function translate(Request $request){
+
+        $this->validate($request,[
+            "compte_emetteur" => "required",
+            "montant" => "required|numeric",
+             "compte_recepteur"=>"required"
+ 
+        ]);
         $compte_emetteur = compte::find($request->compte_emetteur);
 
         if($compte_emetteur->budget >= $request->montant){
 
+        $compte_recepteur = compte::find($request->compte_recepteur);
         
         transaction::create([
-
-        'compte_id'=>$request->compte_emetteur,
-        'sens'=>"db",
-        'montant'=>$request->montant,
-        ]);
-        transaction::create([
-        'compte_id'=>$request->compte_recepteur,
+        'compte_recepteur'=>$compte_recepteur->nom,
+        'compte_emetteur'=>$compte_emetteur->nom,
         'sens'=> "cr",
         'montant'=>$request->montant,
         ]);
+       
+        
         $compte_emetteur->update([
             'budget'=>$compte_emetteur->budget - $request->montant
         ]);
-        $compte_recepteur = compte::find($request->compte_recepteur);
+
         $compte_recepteur->update([
             'budget'=>$compte_recepteur->budget + $request->montant
         ]);
@@ -49,5 +54,17 @@ class TransactionController extends Controller
         {
         return redirect()->back()->withErrors(['montant insuffisant']);
         }
+            }
+        public function afficher(transaction $transaction)
+            {
+                
+                return view('forms.trans')->with([
+                   
+                   'transaction'=>$transaction,
+                   
+            'transactions' => transaction::get()
+                    
+                    
+                ]);
             }
 }
