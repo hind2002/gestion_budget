@@ -2,7 +2,9 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\dette;
 use App\Models\compte;
+use App\Models\credit;
 use App\Models\revenu;
 use App\Models\depense;
 use Illuminate\Http\Request;
@@ -87,6 +89,29 @@ class CompteController extends Controller
             
         ]);
     }
+    public function affichercredit()
+            {
+                $credits = auth()->user()->credits;
+                return view('forms.credits')->with([
+                   
+                   'credits'=>$credits,
+                   
+                    
+                    
+                ]);
+            }
+    public function afficherdette()
+            {
+                $dettes = auth()->user()->dettes;
+               
+                return view('forms.dettes')->with([
+                   
+                   'dettes'=>$dettes,
+                   
+                    
+                    
+                ]);
+            }
 
     
 }

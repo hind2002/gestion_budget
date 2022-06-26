@@ -2,11 +2,13 @@
 
 namespace App\Models;
 
+use App\Models\dette;
+use App\Models\credit;
+use Laravel\Sanctum\HasApiTokens;
+use Illuminate\Notifications\Notifiable;
 use Illuminate\Contracts\Auth\MustVerifyEmail;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Foundation\Auth\User as Authenticatable;
-use Illuminate\Notifications\Notifiable;
-use Laravel\Sanctum\HasApiTokens;
 
 class User extends Authenticatable
 {
@@ -49,5 +51,13 @@ class User extends Authenticatable
     public function comptes()
     {
         return $this->hasMany(compte::class);
+    }
+    public function dettes()
+    {
+        return $this->hasMany(dette::class);
+    }
+    public function credits()
+    {
+        return $this->hasMany(credit::class);
     }
 }

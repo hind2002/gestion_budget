@@ -3,7 +3,9 @@
 use App\Http\Controllers;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\HomeController;
+use App\Http\Controllers\DetteController;
 use App\Http\Controllers\CompteController;
+use App\Http\Controllers\CreditController;
 use App\Http\Controllers\RevenuController;
 use App\Http\Controllers\DepenseController;
 use App\Http\Controllers\TransactionController;
@@ -42,6 +44,12 @@ Route::post('/compte/ajouterrevenus-store/{compte}', [RevenuController::class, '
 Route::get('/transaction/{compte}', [TransactionController::class, 'showtransaction'])->name('transaction.showtransaction')->middleware('auth');
 Route::post('/transactioncompte', [TransactionController::class, 'translate'])->name('transaction.translate')->middleware('auth');
 Route::get('/transactiondetailles', [TransactionController::class, 'afficher'])->name('transaction.afficher')->middleware('auth');
+Route::get('/dettesdetailles1', [CompteController::class, 'affichercredit'])->name('credits.afficher')->middleware('auth');
+Route::get('/dettesdetailles2', [CompteController::class, 'afficherdette'])->name('dettes.afficher')->middleware('auth');
+Route::post('/ajouterdettes-store', [DetteController::class, 'store'])->name('dette.store')->middleware('auth');
+Route::post('/ajoutercredits-store', [CreditController::class, 'store'])->name('credit.store')->middleware('auth');
+Route::get('/ajouterCredits', [CreditController::class, 'index'])->name('credit.index')->middleware('auth');
+Route::get('/ajouterDettes', [DetteController::class, 'index'])->name('dette.index')->middleware('auth');
 
 
 

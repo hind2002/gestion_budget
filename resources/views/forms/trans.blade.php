@@ -14,9 +14,9 @@
           <tr>
             @foreach($transactions as $transaction)
             <th scope="row">{{$transaction->compte_emetteur}}</th>
-            <td>{{$transaction->compte_recepteur}}</td>
+            <th scope="row">{{$transaction->compte_recepteur}}</th>
             <td>{{$transaction->montant}}</td>
-            <td>{{$transaction->created_at->format('d-m-y')}}</td>
+            <td>{{$transaction->created_at->format('d-m-Y')}}</td>
            
           </tr>
            @endforeach
